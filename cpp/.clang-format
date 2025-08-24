@@ -1,0 +1,38 @@
+# .clang-format (project root)
+
+BasedOnStyle: LLVM
+Language: Cpp
+Standard: c++20
+
+# --- includes ---
+SortIncludes: true
+IncludeBlocks: Preserve         # don't merge separated include blocks
+IncludeCategories:
+  # Force GLAD before GLFW (required for loader order)
+  - Regex: '^<glad/.*>'
+    Priority: 1
+  - Regex: '^<GLFW/.*>'
+    Priority: 2
+  # OpenGL C headers next (optional, tweak as you like)
+  - Regex: '^<GL/.*>'
+    Priority: 3
+  # Project/local headers in quotes
+  - Regex: '^["]'
+    Priority: 4
+  # Everything else (system/stdlib/other third-party)
+  - Regex: '.*'
+    Priority: 5
+
+# --- layout / readability (tweak to taste) ---
+ColumnLimit: 100
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+PointerAlignment: Left
+AllowShortFunctionsOnASingleLine: Empty
+BreakConstructorInitializers: AfterColon
+ReflowComments: true
+SpaceAfterCStyleCast: true
+SpacesInAngles:  false
+SpacesInParentheses: false
+Cpp11BracedListStyle: true

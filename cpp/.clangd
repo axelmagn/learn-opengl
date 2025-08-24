@@ -1,0 +1,15 @@
+CompileFlags:
+  CompilationDatabase: .
+
+
+QueryDriver:
+  - C:/Program Files/LLVM/bin/clang-cl.exe
+  - C:/Program Files/Microsoft Visual Studio/*/VC/Tools/MSVC/*/bin/Hostx64/x64/cl.exe
+  - /usr/bin/clang
+  - /usr/bin/clang++
+
+Diagnostics:
+  Suppress: ["-Wunknown-warning-option"]  # avoids noise across mixed toolchains
+Index:
+  Background: Build
+

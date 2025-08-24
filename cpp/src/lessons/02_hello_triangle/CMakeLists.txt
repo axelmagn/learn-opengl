@@ -1,7 +1,4 @@
-add_lesson(02_hello_triangle
-  SOURCES main.cpp
+add_lesson(021_hello_triangle
+  SOURCES main2.cpp
   USE_UTILS           # this one shows how to link utils (optional)
 )
-
-
-target_link_libraries(02_hello_triangle PRIVATE utils)

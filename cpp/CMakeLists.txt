@@ -34,6 +34,25 @@ if (BUILD_UTILS)
   add_subdirectory(src/common)
 endif()
 
-# Lessons (add as many as you like)
-add_subdirectory(src/lessons/01_hello_window)
-add_subdirectory(src/lessons/02_hello_triangle)
+# Auto-add every lesson folder that contains a CMakeLists.txt
+file(GLOB LESSON_DIRS
+     CONFIGURE_DEPENDS
+     "${CMAKE_CURRENT_SOURCE_DIR}/src/lessons/*")
+
+foreach(LESSON_DIR ${LESSON_DIRS})
+  if(IS_DIRECTORY "${LESSON_DIR}" AND EXISTS "${LESSON_DIR}/CMakeLists.txt")
+    # Makes targets like src/lessons/01_hello_window/...
+    add_subdirectory("${LESSON_DIR}")
+  endif()
+endforeach()
+
+
+# copy compile commands to root
+if(CMAKE_EXPORT_COMPILE_COMMANDS)
+  add_custom_target(copy_compile_commands ALL
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+            ${CMAKE_BINARY_DIR}/compile_commands.json
+            ${CMAKE_SOURCE_DIR}/compile_commands.json
+    BYPRODUCTS ${CMAKE_SOURCE_DIR}/compile_commands.json
+    COMMENT "Copying compile_commands.json to source root for clangd")
+endif()
