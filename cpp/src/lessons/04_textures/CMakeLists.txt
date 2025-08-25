@@ -1,0 +1,43 @@
+add_lesson(
+  041_textures
+  SOURCES
+  041_textures.cpp
+  ASSETS
+  041.shader.fs
+  041.shader.vs
+  container.jpg
+  awesomeface.png
+  USE_UTILS)
+
+add_lesson(
+  042_exercise01
+  SOURCES
+  042_exercise01.cpp
+  ASSETS
+  042.shader.fs
+  042.shader.vs
+  container.jpg
+  awesomeface.png
+  USE_UTILS)
+
+add_lesson(
+  043_exercise02
+  SOURCES
+  043_exercise02.cpp
+  ASSETS
+  043.shader.fs
+  043.shader.vs
+  container.jpg
+  awesomeface.png
+  USE_UTILS)
+
+add_lesson(
+  044_exercise03
+  SOURCES
+  044_exercise03.cpp
+  ASSETS
+  044.shader.fs
+  044.shader.vs
+  container.jpg
+  awesomeface.png
+  USE_UTILS)
