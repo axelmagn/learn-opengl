@@ -1,0 +1,13 @@
+add_lesson(
+  breakout
+  SOURCES
+  main.cpp
+  game.cpp
+  resource_manager.cpp
+  shader.cpp
+  texture.cpp
+  sprite_renderer.cpp
+  ASSETS
+  71_sprite.fs.glsl
+  71_sprite.vs.glsl
+  USE_UTILS)
